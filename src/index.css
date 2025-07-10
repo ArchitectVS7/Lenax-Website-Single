@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 10 10 15;
+    --foreground: 250 250 255;
+    --card: 17 17 25;
+    --card-foreground: 250 250 255;
+    --popover: 10 10 15;
+    --popover-foreground: 250 250 255;
+    --primary: 74 20 140;
+    --primary-foreground: 250 250 255;
+    --secondary: 30 30 40;
+    --secondary-foreground: 250 250 255;
+    --muted: 30 30 40;
+    --muted-foreground: 160 160 175;
+    --accent: 74 20 140;
+    --accent-foreground: 250 250 255;
+    --destructive: 220 38 38;
+    --destructive-foreground: 250 250 255;
+    --border: 30 30 40;
+    --input: 30 30 40;
+    --ring: 74 20 140;
+  }
+
+  * {
+    border-color: rgb(var(--border));
+  }
+
+  body {
+    background-color: rgb(var(--background));
+    color: rgb(var(--foreground));
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', monospace;
+  }
+
+  .font-metal {
+    font-family: 'Cinzel', serif;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg;
+    background-color: rgb(var(--primary));
+    color: rgb(var(--primary-foreground));
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 border;
+    background-color: rgb(var(--secondary));
+    color: rgb(var(--secondary-foreground));
+    border-color: rgb(var(--border));
+  }
+
+  .btn-ghost {
+    @apply px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 border;
+    color: rgb(var(--foreground));
+    border-color: rgba(var(--border), 0.5);
+  }
+
+  .card {
+    @apply rounded-lg border shadow-lg backdrop-blur-sm;
+    background-color: rgb(var(--card));
+    color: rgb(var(--card-foreground));
+    border-color: rgb(var(--border));
+  }
+
+  .input {
+    @apply flex h-10 w-full rounded-md border px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    background-color: rgb(var(--background));
+    border-color: rgb(var(--input));
+    color: rgb(var(--foreground));
+  }
+
+  .textarea {
+    @apply flex min-h-[80px] w-full rounded-md border px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    background-color: rgb(var(--background));
+    border-color: rgb(var(--input));
+    color: rgb(var(--foreground));
+  }
+
+  .select {
+    @apply flex h-10 w-full items-center justify-between rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-offset-2;
+    background-color: rgb(var(--background));
+    border-color: rgb(var(--input));
+    color: rgb(var(--foreground));
+  }
+
+  .cosmic-glow {
+    @apply shadow-2xl shadow-primary/10;
+  }
+
+  .metal-texture {
+    background: linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%), 
+                linear-gradient(-45deg, rgba(255,255,255,0.1) 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.1) 75%), 
+                linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.1) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  }
+
+  .animate-star {
+    animation: twinkle 2s infinite;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Cosmic horror theme variations */
+.theme-atmospheric {
+  --background: 10 10 15;
+  --primary: 74 20 140;
+  --accent: 74 20 140;
+}
+
+.theme-raw {
+  --background: 15 15 15;
+  --primary: 27 94 32;
+  --accent: 27 94 32;
+}
+
+.theme-modern {
+  --background: 21 21 21;
+  --primary: 49 27 146;
+  --accent: 49 27 146;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--primary) / 0.8);
+} 
